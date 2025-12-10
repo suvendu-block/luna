@@ -7,3 +7,28 @@ const lenis = new Lenis({
 lenis.on('scroll', (e) => {
   console.log(e);
 });
+
+
+
+
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray("#panel").forEach((section) => {
+  gsap.from(section, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%",   
+      end: "top 40%",
+      scrub: false,
+      once: true  ,
+      // markers:true       
+    }
+  });
+});
